@@ -14,5 +14,4 @@ export class UpdatePostDto extends PartialType(CreatePostDto) {
     readonly contenido?: string;
     @ApiProperty()
     readonly categorias?: string[];
-
 }

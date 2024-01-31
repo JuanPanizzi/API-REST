@@ -66,7 +66,6 @@ export class AdminController {
     return this.userService.findAll();
   }
 
-
 @Roles('ADMIN')
   @Get('/posts')
   @ApiOperation({
