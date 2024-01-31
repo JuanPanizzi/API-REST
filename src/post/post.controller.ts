@@ -205,7 +205,7 @@ export class PostController {
   })
   @ApiResponse({
     status: 401,
-    description: 'Usuario no autorizado. Solo se puede eliminar los posteos propios, o eliminar otros en caso de ser administrador'
+    description: 'Usuario no autorizado. Solo se puede eliminar los posteos propios, o eliminar otros en caso de ser administrador.'
   })
   async remove(@Param('id') id: string, @Request() req) {
 
