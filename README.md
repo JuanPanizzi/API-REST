@@ -17,12 +17,15 @@ $ npm run start:dev
 ## Test
 
  User.controller.spec.ts
+ 
 $ npx jest user.controller.spec.ts
 
  Post.controller.spec.ts
+ 
 $ npx jest post.controller.spec.ts
 
  App.controller.spec.ts
+ 
 $ npx jest app.controller.spec.ts
 
 
