@@ -215,7 +215,7 @@ export class PostController {
       return this.postService.remove(id);
     } else {
       throw new UnauthorizedException(
-        'Solo se puede eliminar los posteos propios, o eliminar otros en caso de ser administrador'
+        'Solo se puede eliminar los posteos propios, o eliminar otros en caso de ser administrador.'
       )
     }
 
