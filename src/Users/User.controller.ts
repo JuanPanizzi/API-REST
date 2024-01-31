@@ -70,12 +70,8 @@ export class UserController {
     type: CreateUserDto
   })
   @ApiResponse({
-    status: 400,
-    description: 'Petición inválida. Especificar bien los datos para hacer la petición. '
-  })
-  @ApiResponse({
-    status: 404,
-    description: 'Usuario no encontrado'
+    status: 500,
+    description: 'Petición inválida. Especificar bien la url'
   })
   findAll(): Promise<UserInt[]> {
     return this.userService.findAll();
@@ -119,6 +115,10 @@ export class UserController {
     status: 401,
     description: 'Usuario no autorizado. Se necesita ser administrador para realizar esta acción'
   })
+  @ApiResponse({
+    status: 500,
+    description: 'Petición inválida. Especificar bien los datos'
+  })
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto, @Request() req) {
 
     if (req.user._id == id || req.user.isAdmin) {
@@ -145,7 +145,7 @@ export class UserController {
   })
   @ApiResponse({
     status: 500,
-    description: 'El id de usuario especificado es incorrecto o no existe en el registro.'
+    description: ' El id de usuario especificado no se ha encontrado, o no se han especificado bien los datos.'
   })
   @ApiResponse({
     status: 401,

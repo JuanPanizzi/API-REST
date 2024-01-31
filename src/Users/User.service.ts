@@ -24,7 +24,7 @@ export class UserService {
 
   }
 
-  async findAll(): Promise<UserInt[]> {
+  async findAll(): Promise<User[]> {
 
     return this.userModel.find().lean()
 
@@ -46,7 +46,7 @@ export class UserService {
 
   async validateUser(username: string, password: string): Promise<any>{
     
-    const users = await this.findAll()
+    const users: UserInt[] = await this.findAll()
     const user = users.find(elem => elem.name == username && elem.password == password)
 
     if(user){

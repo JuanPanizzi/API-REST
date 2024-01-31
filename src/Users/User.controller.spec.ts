@@ -8,7 +8,6 @@ import { getModelToken } from '@nestjs/mongoose';
 import { User } from './schemas/User';
 import { AccessTokenModelDto } from './dto/accesToken.dto';
 import { LoginDto } from './dto/login.dto';
-// import { UnauthorizedException } from '@nestjs/common';
 
 
 describe('UserController', () => {
@@ -116,68 +115,3 @@ describe('UserController', () => {
 
 
   });
-
-
-
-
-
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { UserController } from './User.controller';
-// import { UserService } from './User.service';
-// // import { CreateUserDto } from './dto/create-user.dto';
-// // import { UserInt } from './interfaces/UserInt';
-// import { UserModule } from './User.module';
-// import { User } from './schemas/User';
-// import { getModelToken } from '@nestjs/mongoose';
-// describe('UserController', () => {
-
-//   let controller: UserController;
-//   let userService: UserService;
-
-//   beforeEach(async () => {
-//     const module: TestingModule = await Test.createTestingModule({
-//       imports:[UserModule]
-//     })
-//     .overrideProvider(getModelToken(User.name))
-//     .useValue(jest.fn())
-//     .compile();
-
-//     controller = module.get<UserController>(UserController);
-//     userService = module.get<UserService>(UserService);
-//   });
-
-//   it('should be defined', () => {
-//     expect(controller).toBeDefined();
-//   });
-
-//   // describe('createUser', ()=> {
-
-//   //   it('debería crear un usuario nuevo', async ()=> {
-
-
-//   //     const createUserDto: CreateUserDto = {
-//   //       name: 'John Doe',
-//   //       password: 'password123',
-//   //       isAdmin: false
-//   //     };
-
-//   //     const mockUser: UserInt = {
-//   //       _id: '1',
-//   //       name: createUserDto.name,
-//   //       password: createUserDto.password,
-//   //       isAdmin: createUserDto.isAdmin
-//   //     };
-
-//   //     jest.spyOn(userService, 'create').mockResolvedValue(mockUser);
-      
-//   //     const resultado = await controller.createUser(createUserDto);
-
-//   //     expect(resultado).toBe(mockUser);
-
-//   //     expect(userService.create).toHaveBeenCalledWith(createUserDto);
-
-//   //   })
-
-//   // })
-
-// })

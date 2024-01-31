@@ -5,7 +5,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class UpdatePostDto extends PartialType(CreatePostDto) {
 
     @ApiProperty()
-    readonly userId?: number | string;
+    readonly userId?: string;
     @ApiProperty()
     readonly titulo?: string;
     @ApiProperty()

@@ -1,14 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PostController } from './post.controller';
 import { PostService } from './post.service';
-import { CreatePostDto } from './dto/create-post.dto';
-// import { PostInterface } from './interfaces/postInterface';
 import { PostModule } from './post.module';
 import { getModelToken } from '@nestjs/mongoose';
 import { Post } from './schemas/post.schema';
-import { PostInterface } from './interfaces/postInterface';
-
+import { createPostDto, filter, mockPost, mockPosts, queries } from './test-post-controller/constants';
 describe('PostController', () => {
+  
   let controller: PostController;
   let postService: PostService;
 
@@ -32,24 +30,7 @@ describe('PostController', () => {
 
   describe('create', () => {
     it('debería crear un nuevo post', async () => {
-      const createPostDto: CreatePostDto = {
-        userId: "1",
-        titulo: "Futbol",
-        autor: "Maradona",
-        contenido: "lorem ipsum",
-        categorias: ["lorem", "ipsum"]
-        
-      };
-
-      const mockPost: PostInterface = {
-        _id: "asd",
-        userId: "1",
-        titulo: "Futbol",
-        autor: "Maradona",
-        contenido: "lorem ipsum",
-        categorias: ["lorem", "ipsum"]
-        
-      };
+      
 
       jest.spyOn(postService, 'create').mockResolvedValue(mockPost);
 
@@ -65,19 +46,6 @@ describe('PostController', () => {
 
   describe('findAll', () => {
     it('debería retornar un array de posts', async ()=> {
-
-      //Lo que se espera que se devuelva
-      const mockPosts: PostInterface[] = [
-        {
-          _id: "asd",
-          userId: "1",
-          titulo: "Futbol",
-          autor: "Maradona",
-          contenido: "lorem ipsum",
-          categorias: ["lorem", "ipsum"]
-          
-        }
-      ]
 
       //Simula el comportamiento del findAll del userService y especifica lo que tiene que devolver
       jest.spyOn(postService, 'findAll').mockResolvedValue(mockPosts)
@@ -95,15 +63,6 @@ describe('PostController', () => {
     describe('findOne', ()=> { 
       it('debería retornar un post en específico', async ()=> {
 
-        const mockPost: PostInterface = {
-          _id: "asd",
-          userId: "1",
-          titulo: "Futbol",
-          autor: "Maradona",
-          contenido: "lorem ipsum",
-          categorias: ["lorem", "ipsum"]
-          
-        };
         const id: string = "123sf"
 
         jest.spyOn(postService, 'findOne').mockResolvedValue(mockPost)
@@ -116,7 +75,35 @@ describe('PostController', () => {
       })
     })
 
+    describe('getByQuery', ()=>{ 
 
+      it('debería retornar un array de posts', async ()=> {
+      
+
+      jest.spyOn(postService, 'getByQuery').mockResolvedValue(mockPosts)
+
+      const result = await controller.getByQuery(queries);
+
+      expect(result).toEqual(mockPosts);
+      expect(postService.getByQuery).toHaveBeenCalled();
+
+      })
+    })
+
+    describe('getByFilter', ()=>{ 
+
+      it('debería retornar un array de posts', async ()=> {
+      
+
+      jest.spyOn(postService, 'getByFilter').mockResolvedValue(mockPosts)
+
+      const result = await controller.getByFilter(filter);
+
+      expect(result).toEqual(mockPosts);
+      expect(postService.getByFilter).toHaveBeenCalled();
+
+      })
+    })
 
 
 });

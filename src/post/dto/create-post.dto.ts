@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class CreatePostDto {
     @ApiProperty()
-    readonly userId: number | string;
+    readonly userId: string;
     @ApiProperty()
     readonly titulo: string;
     @ApiProperty()

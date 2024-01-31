@@ -9,7 +9,7 @@ import { JwtStrategy } from '../auth/strategies/jwt.strategy';
 @Module({
   imports: [MongooseModule.forFeature([{name: Post.name, schema: PostSchema}],),
   JwtModule.register({secret: "secretWord",
-            signOptions: {expiresIn: '300s'} }),
+            signOptions: {expiresIn: '3600s'} }),
 ],
   controllers: [PostController],
   providers: [PostService, JwtStrategy],

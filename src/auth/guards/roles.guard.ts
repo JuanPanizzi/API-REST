@@ -74,55 +74,6 @@ export class RolesGuard implements CanActivate {
     return true;
 
 
-    // MI DESARROLLO
-    // const request = context.switchToHttp().getRequest();
-    //  const user = request.user;
-
-    // const roles = this.reflector.get<Array<keyof typeof ROLES>>(
-    //   ROLES_KEY,
-    //   context.getHandler()
-    // );
-
-    // const admin = this.reflector.get<string>(
-    //   ADMIN_KEY,
-    //   context.getHandler());
-
-
-    //   if(admin || user.isAdmin){
-
-    //     console.log('en true');
-    //     console.log(admin)
-    //     return true
-    //   }else{
-    //     console.log('En false')
-    //     console.log(admin)
-    //     console.log(user.isAdmin)
-    //     throw new UnauthorizedException('Necesitas ser administrador para acceder a esta ruta')
-
-    //   }
-
-
-    //FIN MI DESARROLLO 
-
-    // if(roles === undefined){
-    //   if(!admin){
-    //     return true
-    //   }else if(admin && user.isAdmin){
-
-    //     return true
-    //   }else{
-    //     console.log('EN FALSE ADMIN:')
-    //     console.log('admin:')
-    //     console.log(admin)
-    //     console.log('user:')
-    //     console.log(user)
-    //     console.log('userIsAdmin:')
-    //     console.log(user.isAdmin)
-
-    //     throw new UnauthorizedException('Necesitas ser administrador para acceder a esta ruta')
-    //   }
-    // }
-
 
 
   }

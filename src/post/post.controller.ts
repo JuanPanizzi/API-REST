@@ -149,7 +149,7 @@ export class PostController {
   })
   @ApiResponse({
     status: 400,
-    description: 'Peticion invalida. Revisar bien los campos especificados. En el userId se puede pasar un numero o caracteres.'
+    description: 'Peticion invalida. Revisar bien los campos especificados.'
   })
   create(@Body() createPostDto: CreatePostDto): Promise<PostInterface> {
     return this.postService.create(createPostDto);

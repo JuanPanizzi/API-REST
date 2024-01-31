@@ -16,7 +16,7 @@ export class PostService {
     @InjectModel(Post.name) private postModel: Model<Post>
   ) { }
 
-  async getByQuery(queries: QuerySearch): Promise<Post | Post[]> {
+  async getByQuery(queries: QuerySearch): Promise<Post[]> {
 
     const { titulo, autor, contenido, categorias } = queries;
 
@@ -53,7 +53,7 @@ export class PostService {
     }
   }
 
-  async getByFilter(query: QueryFilter): Promise<Post | Post[]> {
+  async getByFilter(query: QueryFilter): Promise<Post[]> {
 
     const { autor, categorias } = query;
 
