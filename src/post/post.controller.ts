@@ -193,7 +193,7 @@ export class PostController {
   @Delete(':id')
   @ApiBearerAuth()
   @ApiOperation({
-    summary: 'Eliminar un post en específico',
+    summary: 'Eliminar un post en específico.',
   })
   @ApiResponse({
     status: 200,
